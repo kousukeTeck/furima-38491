@@ -16,7 +16,6 @@
 ### Association
 - has_many:items
 - has_many:orders
-- has_many:comments
 
 
 ## items
@@ -25,7 +24,7 @@
 |user            |references|null:false,foreign_key:true|
 |name            |string    |null:false                 |
 |description     |text      |null:false                 |
-|category        |integer   |null:false                 |
+|category_id     |integer   |null:false                 |
 |status_id       |integer   |null:false                 |
 |cost_id         |integer   |null:false                 |
 |prefecture_id   |integer   |null:false                 |
@@ -35,19 +34,6 @@
 ### Association
 - belongs_to:user
 - has_one:order
-- has_many:comments
-
-
-## comments
-|Column|Type      |Options                    |
-|------|----------|---------------------------|
-|user  |references|null:false,foreign_key:true|
-|item  |references|null:false,foreign_key:true|
-|text  |text      |null:false                 |
-
-### Association
-- belongs_to:user
-- belongs_to:item
 
 
 
@@ -56,7 +42,7 @@
 |-------------|----------|---------------------------|
 |order        |references|null:false,foreign_key:true|
 |postcode     |string    |null:false                 |
-|prefecture_id|string    |null:false                 |
+|prefecture_id|integer   |null:false                 |
 |city         |string    |null:false                 |
 |block        |string    |null:false                 |
 |building     |string    |                           |
