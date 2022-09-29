@@ -4,8 +4,8 @@
 
 |Column            |Type  |Options               |
 |------------------|------|----------------------|
-|nickname          |string|null:false,unique:true|
-|email             |string|null:false,unique:true|
+|nickname          |string|null:false            |
+|email             |string|null:false            |
 |encrypted_password|string|null:false,unique:true|
 |last_name         |string|null:false            |
 |first_name        |string|null:false            |
@@ -20,17 +20,17 @@
 
 
 ## items
-|Column       |Type      |Options                    |
-|-------------|----------|---------------------------|
-|user         |references|null:false,foreign_key:true|
-|name         |string    |null:false                 |
-|description  |text      |null:false                 |
-|category     |integer   |null:false                 |
-|status       |integer   |null:false                 |
-|cost         |integer   |null:false                 |
-|prefecture   |integer   |null:false                 |
-|price        |integer   |null:false                 |
-|shopping_date|integer   |null:false                 |
+|Column          |Type      |Options                    |
+|----------------|----------|---------------------------|
+|user            |references|null:false,foreign_key:true|
+|name            |string    |null:false                 |
+|description     |text      |null:false                 |
+|category        |integer   |null:false                 |
+|status_id       |integer   |null:false                 |
+|cost_id         |integer   |null:false                 |
+|prefecture_id   |integer   |null:false                 |
+|price           |integer   |null:false                 |
+|shopping_date_id|integer   |null:false                 |
 
 ### Association
 - belongs_to:user
@@ -51,16 +51,16 @@
 
 
 
-## cards
-|Column      |Type      |Options                    |
-|------------|----------|---------------------------|
-|orders      |references|null:false,foreign_key:true|
-|postcode    |string    |null:false                 |
-|prefecture  |string    |null:false                 |
-|city        |string    |null:false                 |
-|block       |string    |null:false                 |
-|building    |string    |null:false                 |
-|phone_number|string    |null:false                 |
+## addresses
+|Column       |Type      |Options                    |
+|-------------|----------|---------------------------|
+|order        |references|null:false,foreign_key:true|
+|postcode     |string    |null:false                 |
+|prefecture_id|string    |null:false                 |
+|city         |string    |null:false                 |
+|block        |string    |null:false                 |
+|building     |string    |                           |
+|phone_number |string    |null:false                 |
 
 
 ### Association
@@ -77,4 +77,4 @@
 ### Association
 - belongs_to:user
 - belongs_to:item
-- has_one:card
+- has_one:address
