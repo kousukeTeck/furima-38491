@@ -1,18 +1,17 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  #belongs_to:user
+  belongs_to :user
   #has_one:order
   has_one_attached :image
 
   belongs_to :category
   belongs_to :prefecture
-  belongs_to :item_status
+  belongs_to :status
   belongs_to :cost
   belongs_to :shopping_date
 
   with_options presence: true do
-    validates :user_id
     validates :image
     validates :name
     validates :description
