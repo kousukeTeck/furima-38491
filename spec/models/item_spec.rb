@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が空欄だと出品できない' do
         @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank", 'Category is not a number')
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品の状態の情報が「---」だと出品できない' do
         @item.status_id = 0
@@ -106,10 +106,15 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shopping date can't be blank", 'Shopping date is not a number')
       end
+      it 'priceが半角数字でないと出品できない' do
+        @item.price = '３００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
       it '価格が空欄だと出品できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number')
+        expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '価格の範囲が、300円未満だと出品できない' do
         @item.price = 100
