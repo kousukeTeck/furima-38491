@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態の情報が空欄だと出品できない' do
         @item.status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank", 'Status is not a number')
+        expect(@item.errors.full_messages).to include("Status can't be blank")
       end
       it '配送料の負担の情報が「---」だと出品できない' do
         @item.cost_id = 0
@@ -84,7 +84,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担の情報が空欄だと出品できない' do
         @item.cost_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Cost can't be blank", 'Cost is not a number')
+        expect(@item.errors.full_messages).to include("Cost can't be blank")
       end
       it '発送元の地域の情報が「---」だと出品できない' do
         @item.prefecture_id = 0
@@ -94,7 +94,7 @@ RSpec.describe Item, type: :model do
       it '発送元の地域の情報が空欄だと出品できない' do
         @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数の情報が「---」だと出品できない' do
         @item.shopping_date_id = 0
@@ -104,7 +104,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数の情報が空欄だと出品できない' do
         @item.shopping_date_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shopping date can't be blank", 'Shopping date is not a number')
+        expect(@item.errors.full_messages).to include("Shopping date can't be blank")
       end
       it 'priceが半角数字でないと出品できない' do
         @item.price = '３００'
