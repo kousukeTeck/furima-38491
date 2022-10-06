@@ -48,10 +48,8 @@
 |building     |string    |                           |
 |phone_number |string    |null:false                 |
 
-
 ### Association
-- belongs_to:order
-
+belongs_to:oder
 
 
 ## orders
@@ -64,3 +62,4 @@
 - belongs_to:user
 - belongs_to:item
 - has_one:address
+
