@@ -49,7 +49,7 @@
 |phone_number |string    |null:false                 |
 
 ### Association
-belongs_to:oder
+- belongs_to:oder
 
 
 ## orders
@@ -62,4 +62,3 @@ belongs_to:oder
 - belongs_to:user
 - belongs_to:item
 - has_one:address
-
