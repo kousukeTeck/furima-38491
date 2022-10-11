@@ -58,17 +58,17 @@ RSpec.describe OrderForm, type: :model do
       it '郵便番号が空だと保存できないこと' do
         @order_form.postcode = nil
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Postcode can't be blank", 'Postcode is invalid. Include hyphen(-)')
+        expect(@order_form.errors.full_messages).to include("Postcode can't be blank")
       end
       it '郵便番号にハイフンがないと保存できないこと' do
         @order_form.postcode = 1_234_567
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Postcode is invalid. Include hyphen(-)')
+        expect(@order_form.errors.full_messages).to include('Postcode is invalid')
       end
       it '都道府県が「---」だと保存できないこと' do
         @order_form.prefecture_id = 0
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_form.errors.full_messages).to include('Prefecture must be other than 0')
       end
       it '都道府県が空だと保存できないこと' do
         @order_form.prefecture_id = nil
